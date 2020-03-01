@@ -48,7 +48,9 @@
         ## sleep 300 seconds (5 minutes)
         ## defaults to 600 seconds (10 minutes) if not set
         sleep: 300
-      when: not hostvars['primary'].is_hotpatch
+      when:
+        - hostvars['primary'].is_hotpatch is defined
+        - not hostvars['primary'].is_hotpatch
 
 - name: stop replication
   hosts: replica
@@ -80,7 +82,9 @@
   gather_facts: false
   roles:
     - role: ghe-maintenance-unset
-      when: not hostvars['primary'].is_hotpatch
+      when:
+        - hostvars['primary'].is_hotpatch is defined
+        - not hostvars['primary'].is_hotpatch
 
 - name: cleanup
   hosts:
