@@ -6,6 +6,7 @@
   gather_facts: false
   tasks:
     - name: Wait connections to become reachable/usable
+      # https://docs.ansible.com/ansible/latest/modules/wait_for_connection_module.html
       wait_for_connection:
 
 - name: get version (primary)
