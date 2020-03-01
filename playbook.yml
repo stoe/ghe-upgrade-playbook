@@ -55,7 +55,6 @@
   gather_facts: false
   roles:
     - role: ghe-repl-stop
-      when: not hostvars['primary'].is_hotpatch
 
 - name: create a backup
   hosts: backup
@@ -75,7 +74,6 @@
   roles:
     - role: ghe-upgrade
     - role: ghe-repl-start
-      when: not hostvars['primary'].is_hotpatch
 
 - name: unset maintenance mode
   hosts: primary

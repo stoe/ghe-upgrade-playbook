@@ -4,6 +4,3 @@
   command: ghe-repl-start
   register: gh_repl_start
   failed_when: gh_repl_start.rc != 0
-  when:
-    - hostvars['replica'].gh_repl_stop.rc is defined
-    - hostvars['replica'].gh_repl_stop.rc == 0
